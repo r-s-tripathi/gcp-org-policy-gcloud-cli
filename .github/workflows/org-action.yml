@@ -27,11 +27,7 @@ jobs:
      
     - name: Deploy
       run: |
-         #!/bin/bash
-
-export zone=us-east1-b
-export project=alert-vista-291320
-
+      
 #Allow extending lifetime of OAuth 2.0 access tokens to up to 12 hours
 gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension None
 
