@@ -25,4 +25,4 @@ jobs:
      
     - name: Deploy
       run: |-
-        gcloud compute instances create new-instance-github
+        gcloud compute instances create new-instance-github --zone us-east1-b
