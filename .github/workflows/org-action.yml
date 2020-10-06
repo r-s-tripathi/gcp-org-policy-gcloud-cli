@@ -24,6 +24,4 @@ jobs:
         project_id: ${{ secrets.GCE_PROJECT }}
      
     - name: Deploy
-      run: |
-            chmod +x ./org-policies.sh
-            ./org-policies.sh
+      run: chmod +x ./org-policies.sh; bash ./org-policies.sh
