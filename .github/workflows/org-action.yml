@@ -29,25 +29,25 @@ jobs:
       run: |
       
           #Allow extending lifetime of OAuth 2.0 access tokens to up to 12 hours
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
 
           #Allowed external Identity Providers for workloads in Cloud IAM
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.workloadIdentityPoolProviders None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.workloadIdentityPoolProviders All
 
           #Allowed ingress settings (Cloud Functions)
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/cloudfunctions.allowedIngressSettings None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/cloudfunctions.allowedIngressSettings All
 
           #Allowed VPC Connector egress settings (Cloud Functions)
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/cloudfunctions.allowedVpcConnectorEgressSettings None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/cloudfunctions.allowedVpcConnectorEgressSettings All
 
           #Compute Storage resource use restrictions (Compute Engine disks, images, and snapshots)
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/compute.storageResourceUseRestrictions None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/compute.storageResourceUseRestrictions All
 
           #Define allowed external IPs for VM instances
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet  constraints/iam.workloadIdentityPoolProviders None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet  constraints/iam.workloadIdentityPoolProviders All
 
           #Define trusted image projects
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/compute.trustedImageProjects None
+          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/compute.trustedImageProjects All
 
           #Disable Automatic IAM Grants for Default Service Accounts
           gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/iam.automaticIamGrantsForDefaultServiceAccounts
