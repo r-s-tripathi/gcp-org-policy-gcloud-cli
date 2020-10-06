@@ -1,4 +1,4 @@
-name: Update GCP
+name: Org Policies
 
 on:
   push:
@@ -24,5 +24,6 @@ jobs:
         project_id: ${{ secrets.GCE_PROJECT }}
      
     - name: Deploy
-      run: |-
-        gcloud compute instances create new-instance-github --zone us-east1-b
+      run: |
+            chmod +x ./org-policies.sh
+            ./org-policies.sh
