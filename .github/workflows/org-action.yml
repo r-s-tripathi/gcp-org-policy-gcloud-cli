@@ -28,137 +28,137 @@ jobs:
     - name: Deploy
       run: |
       
-#Allow extending lifetime of OAuth 2.0 access tokens to up to 12 hours
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension None
+          #Allow extending lifetime of OAuth 2.0 access tokens to up to 12 hours
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension None
 
-#Allowed external Identity Providers for workloads in Cloud IAM
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.workloadIdentityPoolProviders None
+          #Allowed external Identity Providers for workloads in Cloud IAM
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.workloadIdentityPoolProviders None
 
-#Allowed ingress settings (Cloud Functions)
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/cloudfunctions.allowedIngressSettings None
+          #Allowed ingress settings (Cloud Functions)
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/cloudfunctions.allowedIngressSettings None
 
-#Allowed VPC Connector egress settings (Cloud Functions)
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/cloudfunctions.allowedVpcConnectorEgressSettings None
+          #Allowed VPC Connector egress settings (Cloud Functions)
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/cloudfunctions.allowedVpcConnectorEgressSettings None
 
-#Compute Storage resource use restrictions (Compute Engine disks, images, and snapshots)
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.storageResourceUseRestrictions None
+          #Compute Storage resource use restrictions (Compute Engine disks, images, and snapshots)
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.storageResourceUseRestrictions None
 
-#Define allowed external IPs for VM instances
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet  constraints/iam.workloadIdentityPoolProviders None
+          #Define allowed external IPs for VM instances
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet  constraints/iam.workloadIdentityPoolProviders None
 
-#Define trusted image projects
-gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.trustedImageProjects None
+          #Define trusted image projects
+          gcloud alpha resource-manager org-policies allow --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.trustedImageProjects None
 
-#Disable Automatic IAM Grants for Default Service Accounts
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.automaticIamGrantsForDefaultServiceAccounts
+          #Disable Automatic IAM Grants for Default Service Accounts
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.automaticIamGrantsForDefaultServiceAccounts
 
-#Disable Cloud Logging
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/gcp.disableCloudLogging
+          #Disable Cloud Logging
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/gcp.disableCloudLogging
 
-#Disable Guest Attributes of Compute Engine metadata
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableGuestAttributesAccess
+          #Disable Guest Attributes of Compute Engine metadata
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableGuestAttributesAccess
 
-#Disable Internet Network Endpoint Groups
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableInternetNetworkEndpointGroup
+          #Disable Internet Network Endpoint Groups
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableInternetNetworkEndpointGroup
 
-#Disable service account creation
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableServiceAccountCreation
+          #Disable service account creation
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableServiceAccountCreation
 
-#Disable service account key creation
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableServiceAccountKeyCreation
+          #Disable service account key creation
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableServiceAccountKeyCreation
 
-#Disable Service Account Key Upload
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableServiceAccountKeyUpload
+          #Disable Service Account Key Upload
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableServiceAccountKeyUpload
 
-#Disable Source Code Download
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/appengine.disableCodeDownload
+          #Disable Source Code Download
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/appengine.disableCodeDownload
 
-#Disable VM nested virtualization
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableNestedVirtualization
+          #Disable VM nested virtualization
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableNestedVirtualization
 
-#Disable VM serial port access
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableSerialPortAccess
+          #Disable VM serial port access
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableSerialPortAccess
 
-#Disable VM serial port logging to Stackdriver
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableSerialPortLogging
+          #Disable VM serial port logging to Stackdriver
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.disableSerialPortLogging
 
-#Disable Workload Identity Cluster Creation
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableWorkloadIdentityClusterCreation
+          #Disable Workload Identity Cluster Creation
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.disableWorkloadIdentityClusterCreation
 
-#Domain restricted sharing
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.allowedPolicyMemberDomains
+          #Domain restricted sharing
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/iam.allowedPolicyMemberDomains
 
-#Enforce uniform bucket-level access
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/storage.uniformBucketLevelAccess
+          #Enforce uniform bucket-level access
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/storage.uniformBucketLevelAccess
 
-#Google Cloud Platform - Detailed Audit Logging Mode
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/gcp.detailedAuditLoggingMode
+          #Google Cloud Platform - Detailed Audit Logging Mode
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/gcp.detailedAuditLoggingMode
 
-#Google Cloud Platform - Resource Location Restriction
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/gcp.resourceLocations
+          #Google Cloud Platform - Resource Location Restriction
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/gcp.resourceLocations
 
-#Require OS Login
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.requireOsLogin
+          #Require OS Login
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.requireOsLogin
 
-#Require VPC Connector (Cloud Functions)
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/cloudfunctions.requireVPCConnector
+          #Require VPC Connector (Cloud Functions)
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/cloudfunctions.requireVPCConnector
 
-#Restrict allowed Google Cloud APIs and services
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/serviceuser.services
+          #Restrict allowed Google Cloud APIs and services
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/serviceuser.services
 
-#Restrict Authenticated Google Connection
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictAuthenticatedGoogleConnection
+          #Restrict Authenticated Google Connection
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictAuthenticatedGoogleConnection
 
-#Restrict Authorized Networks on Cloud SQL instances
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/sql.restrictAuthorizedNetworks
+          #Restrict Authorized Networks on Cloud SQL instances
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/sql.restrictAuthorizedNetworks
 
-#Restrict Cloud NAT usage
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictCloudNATUsage
+          #Restrict Cloud NAT usage
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictCloudNATUsage
 
-#Restrict Dedicated Cloud Interconnect usage
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictDedicatedInterconnectUsage
+          #Restrict Dedicated Cloud Interconnect usage
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictDedicatedInterconnectUsage
 
-#Restrict default Google-managed encryption on Cloud SQL instances
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/sql.disableDefaultEncryptionCreation
+          #Restrict default Google-managed encryption on Cloud SQL instances
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/sql.disableDefaultEncryptionCreation
 
-#Restrict Direct Google Access
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictDirectGoogleAccess
+          #Restrict Direct Google Access
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictDirectGoogleAccess
 
-#Restrict Load Balancer Creation Based on Load Balancer Types
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictLoadBalancerCreationForTypes
+          #Restrict Load Balancer Creation Based on Load Balancer Types
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictLoadBalancerCreationForTypes
 
-#Restrict Partner Cloud Interconnect usage
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictPartnerInterconnectUsage
+          #Restrict Partner Cloud Interconnect usage
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictPartnerInterconnectUsage
 
-#Restrict Protocol Forwarding Based on type of IP Address
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictProtocolForwardingCreationForTypes
+          #Restrict Protocol Forwarding Based on type of IP Address
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictProtocolForwardingCreationForTypes
 
-#Restrict Public IP access on Cloud SQL instances
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/sql.restrictPublicIp
+          #Restrict Public IP access on Cloud SQL instances
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/sql.restrictPublicIp
 
-#Restrict Shared VPC Host Projects
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictSharedVpcHostProjects
+          #Restrict Shared VPC Host Projects
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictSharedVpcHostProjects
 
-#Restrict shared VPC project lien removal
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictXpnProjectLienRemoval
+          #Restrict shared VPC project lien removal
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictXpnProjectLienRemoval
 
-#Restrict Shared VPC Subnetworks
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictSharedVpcSubnetworks
+          #Restrict Shared VPC Subnetworks
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictSharedVpcSubnetworks
 
-#Restrict VM IP Forwarding
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.vmCanIpForward
+          #Restrict VM IP Forwarding
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.vmCanIpForward
 
-#Restrict VPC peering usage
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictVpcPeering
+          #Restrict VPC peering usage
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictVpcPeering
 
-#Restrict VPN Peer IPs
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictVpnPeerIPs
+          #Restrict VPN Peer IPs
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.restrictVpnPeerIPs
 
-#Retention policy duration in seconds
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/storage.retentionPolicySeconds
+          #Retention policy duration in seconds
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/storage.retentionPolicySeconds
 
-#Shielded VMs
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.requireShieldedVm
+          #Shielded VMs
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.requireShieldedVm
 
-#Skip default network creation
-gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.skipDefaultNetworkCreation
+          #Skip default network creation
+          gcloud alpha resource-manager org-policies disable-enforce  --zone {{env.zone}} --project {{env.project}} --quiet constraints/compute.skipDefaultNetworkCreation
