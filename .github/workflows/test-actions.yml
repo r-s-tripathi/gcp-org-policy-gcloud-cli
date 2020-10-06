@@ -3,7 +3,7 @@ name: Update GCP
 on:
   push:
     branches:
-    - master
+    - develop
 
 env:
   PROJECT_ID: ${{ secrets.GCE_PROJECT }}
