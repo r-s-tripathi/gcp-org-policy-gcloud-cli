@@ -1,3 +1,2 @@
-# Test GCP ORG Policies
+# org-policy-cli
 
-Gcloud CLI
