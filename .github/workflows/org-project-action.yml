@@ -21,14 +21,14 @@ jobs:
       with:
         version: '313.0.0'
         service_account_key: ${{ secrets.GCE_SA_KEY }}
-        project_id: ${{ secrets.GCE_PROJECT }}
-        project_key_id: ${{ secrets.GCE_SA_ID }}
+        service_account_id: ${{ secrets.GCE_SA_ID }}
      
     - name: Deploy
       run: |
       
+      
       #List Types
-		      gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
+	  gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
 
           gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.workloadIdentityPoolProviders All
   
@@ -75,7 +75,7 @@ jobs:
           gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowedPolicyMemberDomains All
 		
 		
-		  #Boolean Types
+       #Boolean Types
           gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/iam.automaticIamGrantsForDefaultServiceAccounts
       
           gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/gcp.disableCloudLogging
@@ -112,7 +112,7 @@ jobs:
           
           gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/sql.disableDefaultEncryptionCreation
         
-		      gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/sql.restrictPublicIp
+	  gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/sql.restrictPublicIp
        
           gcloud resource-manager org-policies disable-enforce --project ${{env.project}} --quiet constraints/compute.restrictXpnProjectLienRemoval
 		  
