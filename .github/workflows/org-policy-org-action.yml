@@ -6,7 +6,7 @@ on:
     - main
 
 env:
-  ORGANIZATION: ${{ secrets.GCE_ORGANIZATION }}
+  ORGANIZATION: ${{ secrets.GCP_ORGANIZATION_ID }}
 
 jobs:
   setup:
@@ -20,8 +20,8 @@ jobs:
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '313.0.0'
-        service_account_key: ${{ secrets.GCE_SA_KEY }}
-        service_account_id: ${{ secrets.GCE_SA_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        service_account_id: ${{ secrets.GCP_SA_ID }}
      
     - name: Deploy
       run: |
@@ -74,7 +74,7 @@ jobs:
           gcloud resource-manager org-policies allow --organization ${{env.organization}} --quiet constraints/iam.allowedPolicyMemberDomains All
 		
           
-		   #Boolean Types
+       #Boolean Types
           gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/iam.automaticIamGrantsForDefaultServiceAccounts
       
           gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/gcp.disableCloudLogging
@@ -111,7 +111,7 @@ jobs:
           
           gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/sql.disableDefaultEncryptionCreation
         
-		      gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/sql.restrictPublicIp
+          gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/sql.restrictPublicIp
        
           gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/compute.restrictXpnProjectLienRemoval
 		  
@@ -119,4 +119,4 @@ jobs:
 
           gcloud resource-manager org-policies disable-enforce --organization ${{env.organization}} --quiet constraints/compute.skipDefaultNetworkCreation
 		  
-		  
+		 
