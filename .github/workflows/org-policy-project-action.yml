@@ -29,8 +29,6 @@ jobs:
       #List Types
 	  gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
 
-          gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.workloadIdentityPoolProviders All
-  
           gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/cloudfunctions.allowedIngressSettings All
 
           gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/cloudfunctions.allowedVpcConnectorEgressSettings All
