@@ -6,7 +6,7 @@ on:
     - main
 
 env:
-  PROJECT: ${{ secrets.GCE_PROJECT }}
+  PROJECT: ${{ secrets.GCP_PROJECT_ID }}
 
 jobs:
   setup:
@@ -20,12 +20,11 @@ jobs:
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '313.0.0'
-        service_account_key: ${{ secrets.GCE_SA_KEY }}
-        service_account_id: ${{ secrets.GCE_SA_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        service_account_id: ${{ secrets.GCP_SA_ID }}
      
     - name: Deploy
       run: |
-      
       
       #List Types
 	  gcloud resource-manager org-policies allow --project ${{env.project}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
