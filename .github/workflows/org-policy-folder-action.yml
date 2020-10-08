@@ -27,9 +27,8 @@ jobs:
       run: |
       
           
-       #List Types
-		  
-		      gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
+       #List Types  
+	  gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/iam.allowServiceAccountCredentialLifetimeExtension All
 
           gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/iam.workloadIdentityPoolProviders All
   
@@ -76,7 +75,7 @@ jobs:
           gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/iam.allowedPolicyMemberDomains All
 		
     
-		   #Boolean Types
+       #Boolean Types
           gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/iam.automaticIamGrantsForDefaultServiceAccounts
       
           gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/gcp.disableCloudLogging
@@ -113,12 +112,12 @@ jobs:
           
           gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/sql.disableDefaultEncryptionCreation
         
-		      gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/sql.restrictPublicIp
+	  gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/sql.restrictPublicIp
        
           gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.restrictXpnProjectLienRemoval
 		  
           gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.requireShieldedVm
 
           gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.skipDefaultNetworkCreation
-		  
-		  
+		 
+		 
