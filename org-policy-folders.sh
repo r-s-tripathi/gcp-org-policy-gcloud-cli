@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#Folder Policies #Folder Level #Defaults
+#Folder Policies #Defaults
+
 #List Types
+
 #Compute
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/compute.restrictVpnPeerIPs All
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/compute.restrictVpcPeering All
@@ -31,7 +33,9 @@ gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet cons
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/storage.retentionPolicySeconds All
 #GCP
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/gcp.resourceLocations All
+
 #Boolean Types
+
 #Compute
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.restrictXpnProjectLienRemoval
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.requireShieldedVm
@@ -61,4 +65,3 @@ gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/storage.uniformBucketLevelAccess
 #Functions
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/cloudfunctions.requireVPCConnector
-		 
