@@ -1,4 +1,4 @@
-name: Folder Org Policies
+name: Org Policies - Folder
 
 on:
   push:
@@ -6,7 +6,8 @@ on:
     - main
 
 env:
-  FOLDER: ${{ secrets.GCP_FOLDER_ID }}
+  FOLDER: ${{ secrets.GOOGLE_FOLDER }}
+  REGION: ${{ secrets.GOOGLE_REGION }}
 
 jobs:
   setup:
@@ -20,14 +21,15 @@ jobs:
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '313.0.0'
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        service_account_id: ${{ secrets.GCP_SA_ID }}
-     
+        service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
+
     - name: Deploy
       run: |
 
-#Folder Policies #Folder Level #Defaults
+#Folder Policies #Defaults
+
 #List Types
+
 #Compute
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/compute.restrictVpnPeerIPs All
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/compute.restrictVpcPeering All
@@ -57,7 +59,9 @@ gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet cons
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/storage.retentionPolicySeconds All
 #GCP
 gcloud resource-manager org-policies allow --folder ${{env.folder}} --quiet constraints/gcp.resourceLocations All
+
 #Boolean Types
+
 #Compute
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.restrictXpnProjectLienRemoval
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/compute.requireShieldedVm
@@ -87,4 +91,3 @@ gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/storage.uniformBucketLevelAccess
 #Functions
 gcloud resource-manager org-policies disable-enforce --folder ${{env.folder}} --quiet constraints/cloudfunctions.requireVPCConnector
-		 
