@@ -1,19 +1,13 @@
 steps:
-- id: 'branch name'
-  name: 'alpine'
-  entrypoint: 'sh'
-  args:
-  - '-c'
-  - |
-      echo "$BRANCH_NAME"
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+    
+      [
+    
+    #Project Policies #Defaults      
       
-  - id: 'Run project policy'
-  entrypoint: 'sh'
-  args:
-  - '-c'
-  - |
-      #Project Policies #Defaults      
       #List Types
+      
       #Compute
       gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictVpnPeerIPs All
       gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictVpcPeering All
@@ -43,7 +37,9 @@ steps:
       gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/storage.retentionPolicySeconds All
       #GCP
       gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/gcp.resourceLocations All
+      
       #Boolean Types
+      
       #Compute
       gcloud resource-manager org-policies disable-enforce --project alert-vista-291320 --quiet constraints/compute.restrictXpnProjectLienRemoval
       gcloud resource-manager org-policies disable-enforce --project alert-vista-291320 --quiet constraints/compute.requireShieldedVm
@@ -73,3 +69,6 @@ steps:
       gcloud resource-manager org-policies disable-enforce --project alert-vista-291320 --quiet constraints/storage.uniformBucketLevelAccess
       #Functions
       gcloud resource-manager org-policies disable-enforce --project alert-vista-291320 --quiet constraints/cloudfunctions.requireVPCConnector
+      
+      ]
+      
