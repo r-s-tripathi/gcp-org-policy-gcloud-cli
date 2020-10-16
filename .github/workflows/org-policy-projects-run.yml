@@ -6,8 +6,8 @@ on:
     - main
 
 env:
-  PROJECT: ${{ secrets.GOOGLE_PROJECT }}
-  REGION: ${{ secrets.GOOGLE_REGION }}
+  PROJECT: alert-vista-291320
+  REGION: us-east1
 
 jobs:
   setup:
