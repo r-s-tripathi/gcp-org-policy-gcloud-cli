@@ -1,4 +1,4 @@
-name: Org Policies
+name: Org Policies - Projects
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
     - main
 
 env:
-  PROJECT: alert-vista-291320
-  REGION: us-east1
+  PROJECT: ${{ secrets.GCP_PROJECT }}
+  REGION: ${{ secrets.GCP_REGION }}
 
 jobs:
   setup:
@@ -21,17 +21,8 @@ jobs:
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '313.0.0'
-        service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
+        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
      
-    - name: Deploy
-      run: |
+  #  - name: Deploy
+  #    run: |
         
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictVpnPeerIPs All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictVpcPeering All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.vmCanIpForward All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictSharedVpcSubnetworks All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictSharedVpcHostProjects All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictPartnerInterconnectUsage All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictProtocolForwardingCreationForTypes All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictDirectGoogleAccess All
-        gcloud resource-manager org-policies allow --project alert-vista-291320 --quiet constraints/compute.restrictLoadBalancerCreationForTypes All
