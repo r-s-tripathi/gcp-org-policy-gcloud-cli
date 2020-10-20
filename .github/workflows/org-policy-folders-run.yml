@@ -6,8 +6,8 @@ on:
     - main
 
 env:
-  FOLDER: ${{ secrets.GOOGLE_FOLDER }}
-  REGION: ${{ secrets.GOOGLE_REGION }}
+  FOLDER: ${{ secrets.GCP_FOLDER }}
+  REGION: ${{ secrets.GCP_REGION }}
 
 jobs:
   setup:
@@ -21,7 +21,7 @@ jobs:
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '313.0.0'
-        service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
+        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
 
 #    - name: Deploy
 #      run: |
